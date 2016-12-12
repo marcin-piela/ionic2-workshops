@@ -3,7 +3,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
     <ion-item-sliding *ngFor="let item of items; let i = index">
       <ion-item>
         <ion-avatar item-left>

@@ -17,10 +17,17 @@
       <ion-label floating="">Todo</ion-label>
       <ion-input type="text" [(ngModel)]="title" name="title" required></ion-input>
     </ion-item>
+
     <ion-item>
       <ion-label floating="">Description</ion-label>
       <ion-textarea [(ngModel)]="description" name="description" required></ion-textarea>
     </ion-item>
+
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime>
+    </ion-item>
+
     <ion-item>
       <ion-label>Checkbox 1</ion-label>
       <ion-checkbox></ion-checkbox>

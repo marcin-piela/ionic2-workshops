@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ModalController, ToastController} from 'ionic-angular';
+import {ModalController, ToastController, LoadingController, Loading} from 'ionic-angular';
 import {MyTasks} from "../../services/my-tasks.sevice";
 import {NewTaskPage} from "../new-task/new-task";
 import {Events} from 'ionic-angular';
@@ -23,14 +23,19 @@ export class MyTasksPage {
     public count:Number;
 
     /**
-     * Task service
-     */
-    private tasksService:MyTasks;
-
-    /**
      * Modal Controller service
      */
     private modalCtrl:ModalController;
+
+    /**
+     * Loading Controller service
+     */
+    private loadingCtrl:LoadingController;
+
+    /**
+     * Task service
+     */
+    private tasksService:MyTasks;
 
     /**
      * Toast Controller service
@@ -38,23 +43,48 @@ export class MyTasksPage {
     private toastCtrl:ToastController;
 
     /**
+     * Loading instance
+     */
+    private loading:Loading;
+
+    /**
      * @param modalCtrl
      * @param toastCtrl
+     * @param loadingCtrl
      * @param tasks
      * @param events
      */
-    constructor(modalCtrl:ModalController, toastCtrl:ToastController, tasks:MyTasks, events:Events) {
+    constructor(
+        modalCtrl:ModalController,
+        toastCtrl:ToastController,
+        loadingCtrl:LoadingController,
+        tasks:MyTasks,
+        events:Events
+    ) {
         this.modalCtrl = modalCtrl;
-        this.tasksService = tasks;
         this.toastCtrl = toastCtrl;
+        this.loadingCtrl = loadingCtrl;
+        this.tasksService = tasks;
+
+        this.showLoading();
 
         this.tasksService.resolve().then(() => {
             this.refreshResults();
+            this.loading.dismiss();
         });
 
         events.subscribe(NewTaskAddedEvent.NAME, (params:[NewTaskAddedEvent]) => {
             this.saveTask(params[0]);
         });
+    }
+
+    private showLoading()
+    {
+        this.loading = this.loadingCtrl.create({
+            content: 'Please wait...'
+        });
+
+        this.loading.present();
     }
 
     /**
@@ -99,5 +129,13 @@ export class MyTasksPage {
      */
     public newTask() {
         this.modalCtrl.create(NewTaskPage).present();
+    }
+
+    /**
+     * Reorder items
+     * @param indexes
+     */
+    public reorderItems(indexes) {
+        this.tasksService.reorderItems(indexes);
     }
 }

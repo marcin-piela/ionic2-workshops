@@ -82,5 +82,14 @@ export class MyTasks {
     public count() {
         return this.collection.count();
     }
+
+    /**
+     * Reorder items
+     * @param indexes
+     */
+    public reorderItems(indexes) {
+        this.collection.reorderItems(indexes);
+        this.storage.set('tasks', this.collection.all());
+    }
 }
 
