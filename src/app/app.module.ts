@@ -8,6 +8,8 @@ import {Storage} from "@ionic/storage";
 import {NewTaskPage} from "../pages/new-task/new-task";
 import {NavbarTitle} from "../directives/navbar-title/navbar-title";
 import {TaskDetailsPage} from "../pages/task-details/task-details";
+import {GalleryPage} from "../pages/gallery/gallery";
+import {NewPhotoPage} from "../pages/new-photo/new-photo";
 
 @NgModule({
     declarations: [
@@ -17,7 +19,9 @@ import {TaskDetailsPage} from "../pages/task-details/task-details";
         TabsPage,
         NavbarTitle,
         NewTaskPage,
-        TaskDetailsPage
+        TaskDetailsPage,
+        GalleryPage,
+        NewPhotoPage
     ],
     imports: [
         IonicModule.forRoot(MyApp, {
@@ -32,7 +36,9 @@ import {TaskDetailsPage} from "../pages/task-details/task-details";
         TabsPage,
         NavbarTitle,
         NewTaskPage,
-        TaskDetailsPage
+        TaskDetailsPage,
+        GalleryPage,
+        NewPhotoPage
     ],
     providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
 })

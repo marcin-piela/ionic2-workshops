@@ -15,8 +15,4 @@ export class TaskDetailsPage {
         this.navParams = navParams;
         this.task = navParams.get('task');
     }
-
-    ionViewDidLoad() {
-        console.log('Hello TaskDetailsPage Page');
-    }
 }

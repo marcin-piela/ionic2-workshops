@@ -1,0 +1,19 @@
+<ion-header>
+  <navbar title="Gallery"></navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-thumbnail class="preview"  *ngFor="let image of images; let i = index">
+    <img [src]="image"/>
+  </ion-thumbnail>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full icon-left (click)="newPhoto()">
+      <ion-icon name="add"></ion-icon>
+      Add photo
+    </button>
+  </ion-toolbar>
+</ion-footer>

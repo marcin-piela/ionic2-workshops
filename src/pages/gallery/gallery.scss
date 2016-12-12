@@ -1,0 +1,11 @@
+page-gallery {
+  .preview {
+    text-align:center;
+    border:4px solid color($colors, primary);
+    margin-bottom: 10px;
+
+    img {
+      width: 100%;
+    }
+  }
+}

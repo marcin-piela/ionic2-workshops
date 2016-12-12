@@ -115,7 +115,6 @@ export class MyTasksPage {
         this.tasksService.addNewTask(event.task);
         this.refreshResults();
         this.presentToastWithNewTask();
-
     }
 
     /**
