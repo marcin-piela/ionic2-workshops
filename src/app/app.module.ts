@@ -18,7 +18,9 @@ import {NavbarTitle} from "../directives/navbar-title/navbar-title";
         NewTaskPage
     ],
     imports: [
-        IonicModule.forRoot(MyApp)
+        IonicModule.forRoot(MyApp, {
+            statusbarPadding: false
+        })
     ],
     bootstrap: [IonicApp],
     entryComponents: [
