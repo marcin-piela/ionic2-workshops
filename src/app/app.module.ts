@@ -10,6 +10,7 @@ import {NavbarTitle} from "../directives/navbar-title/navbar-title";
 import {TaskDetailsPage} from "../pages/task-details/task-details";
 import {GalleryPage} from "../pages/gallery/gallery";
 import {NewPhotoPage} from "../pages/new-photo/new-photo";
+import {MapPage} from "../pages/map/map";
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import {NewPhotoPage} from "../pages/new-photo/new-photo";
         NewTaskPage,
         TaskDetailsPage,
         GalleryPage,
-        NewPhotoPage
+        NewPhotoPage,
+        MapPage
     ],
     imports: [
         IonicModule.forRoot(MyApp, {
@@ -38,7 +40,8 @@ import {NewPhotoPage} from "../pages/new-photo/new-photo";
         NewTaskPage,
         TaskDetailsPage,
         GalleryPage,
-        NewPhotoPage
+        NewPhotoPage,
+        MapPage
     ],
     providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
 })
