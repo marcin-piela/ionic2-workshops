@@ -1,15 +1,17 @@
 <ion-menu [content]="content">
-  <ion-toolbar>
-    <ion-title>Menu</ion-title>
-  </ion-toolbar>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
   <ion-content>
     <ion-list>
-      <button ion-item (click)="openPage(loginPage)">
-        Login
+      <button menuClose ion-item (click)="openPage()">
+        Test 1
       </button>
-      <button ion-item (click)="openPage(signupPage)">
-        Signup
+      <button menuClose ion-item (click)="openPage()">
+        Test 2
       </button>
     </ion-list>
   </ion-content>

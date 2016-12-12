@@ -4,7 +4,9 @@ import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 import {TabsPage} from '../directives/tabs/tabs';
 import {MyTasksPage} from "../pages/my-tasks/my-tasks";
-import {Header} from "../directives/header/header";
+import {Storage} from "@ionic/storage";
+import {NewTaskPage} from "../pages/new-task/new-task";
+import {NavbarTitle} from "../directives/navbar-title/navbar-title";
 
 @NgModule({
     declarations: [
@@ -12,7 +14,8 @@ import {Header} from "../directives/header/header";
         HomePage,
         MyTasksPage,
         TabsPage,
-        Header
+        NavbarTitle,
+        NewTaskPage
     ],
     imports: [
         IonicModule.forRoot(MyApp)
@@ -23,9 +26,10 @@ import {Header} from "../directives/header/header";
         HomePage,
         MyTasksPage,
         TabsPage,
-        Header
+        NavbarTitle,
+        NewTaskPage
     ],
-    providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+    providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
 })
 export class AppModule {
 }
