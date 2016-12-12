@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Camera} from 'ionic-native';
 import {ViewController, Events} from "ionic-angular";
 import {NewImageAdded} from "../../workshop/gallery/new-image-added.event";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
     selector: 'page-new-photo',
@@ -21,20 +22,28 @@ export class NewPhotoPage {
     private events:Events;
 
     /**
+     * DomSanitizer Service
+     */
+    public domSanitizer:DomSanitizer;
+
+    /**
      * @param viewCtrl
      * @param events
+     * @param domSanitizer
      */
-    constructor(viewCtrl:ViewController, events:Events) {
+    constructor(viewCtrl:ViewController, events:Events, domSanitizer: DomSanitizer) {
         this.viewCtrl = viewCtrl;
         this.events = events;
+        this.domSanitizer = domSanitizer;
     }
 
     /**
      * Fired on load
      */
     public ionViewDidLoad() {
-        Camera.getPicture({sourceType: 0, destinationType: 0, targetWidth: 300, targetHeight: 300})
+        Camera.getPicture({sourceType: 0, destinationType: 0,encodingType:0, targetWidth: 300, targetHeight: 300})
             .then((imageData) => {
+                    console.log(imageData);
                     this.image = 'data:image/jpeg;base64,' + imageData;
                 }
             );

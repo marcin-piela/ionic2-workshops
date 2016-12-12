@@ -14,7 +14,7 @@
 
 <ion-content padding>
   <ion-thumbnail class="preview" [hidden]="!image">
-    <img [src]="image"/>
+    <img [src]="domSanitizer.bypassSecurityTrustUrl(image)"/>
   </ion-thumbnail>
 </ion-content>
 

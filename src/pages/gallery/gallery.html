@@ -5,7 +5,7 @@
 
 <ion-content padding>
   <ion-thumbnail class="preview"  *ngFor="let image of images; let i = index">
-    <img [src]="image"/>
+    <img [src]="domSanitizer.bypassSecurityTrustUrl(image)"/>
   </ion-thumbnail>
 </ion-content>
 
