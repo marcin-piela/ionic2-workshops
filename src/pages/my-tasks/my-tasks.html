@@ -4,7 +4,7 @@
 
 <ion-content>
   <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
-    <ion-item-sliding *ngFor="let item of items; let i = index">
+    <ion-item-sliding *ngFor="let item of items; let i = index" #slidingItem>
       <ion-item>
         <ion-avatar item-left>
           <img src="https://cdn0.iconfinder.com/data/icons/iconshock_guys/512/andrew.png">
@@ -13,12 +13,12 @@
         <p>{{item.description}}</p>
       </ion-item>
       <ion-item-options side="right">
-        <button ion-button color="primary" (click)="removeTask(item)">
+        <button ion-button color="danger" (click)="removeTask(item)">
           <ion-icon name="text"></ion-icon>
           Remove
         </button>
-        <button ion-button color="secondary">
-          <ion-icon name="call"></ion-icon>
+        <button ion-button color="primary" (click)="goToTask(item, slidingItem)">
+          <ion-icon name="information-circle"></ion-icon>
           Details
         </button>
       </ion-item-options>

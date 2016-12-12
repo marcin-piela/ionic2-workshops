@@ -7,6 +7,7 @@ import {MyTasksPage} from "../pages/my-tasks/my-tasks";
 import {Storage} from "@ionic/storage";
 import {NewTaskPage} from "../pages/new-task/new-task";
 import {NavbarTitle} from "../directives/navbar-title/navbar-title";
+import {TaskDetailsPage} from "../pages/task-details/task-details";
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import {NavbarTitle} from "../directives/navbar-title/navbar-title";
         MyTasksPage,
         TabsPage,
         NavbarTitle,
-        NewTaskPage
+        NewTaskPage,
+        TaskDetailsPage
     ],
     imports: [
         IonicModule.forRoot(MyApp, {
@@ -29,7 +31,8 @@ import {NavbarTitle} from "../directives/navbar-title/navbar-title";
         MyTasksPage,
         TabsPage,
         NavbarTitle,
-        NewTaskPage
+        NewTaskPage,
+        TaskDetailsPage
     ],
     providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
 })

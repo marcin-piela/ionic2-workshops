@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
-import {ModalController, ToastController, LoadingController, Loading} from 'ionic-angular';
+import {ModalController, ToastController, LoadingController, Loading, NavController, ItemSliding} from 'ionic-angular';
 import {MyTasks} from "../../services/my-tasks.sevice";
 import {NewTaskPage} from "../new-task/new-task";
 import {Events} from 'ionic-angular';
 import {NewTaskAddedEvent} from "../../workshop/tasks/new-task-added.event";
 import {Task} from "../../workshop/tasks/task";
+import {TaskDetailsPage} from "../task-details/task-details";
 
 @Component({
     selector: 'page-my-tasks',
@@ -21,6 +22,11 @@ export class MyTasksPage {
      * Count of items
      */
     public count:Number;
+
+    /**
+     * Navigation Controller service
+     */
+    private navCtrl:NavController;
 
     /**
      * Modal Controller service
@@ -48,25 +54,29 @@ export class MyTasksPage {
     private loading:Loading;
 
     /**
+     *
+     * @param navCtrl
      * @param modalCtrl
      * @param toastCtrl
      * @param loadingCtrl
      * @param tasks
      * @param events
      */
-    constructor(
-        modalCtrl:ModalController,
-        toastCtrl:ToastController,
-        loadingCtrl:LoadingController,
-        tasks:MyTasks,
-        events:Events
-    ) {
+    constructor(navCtrl:NavController,
+                modalCtrl:ModalController,
+                toastCtrl:ToastController,
+                loadingCtrl:LoadingController,
+                tasks:MyTasks,
+                events:Events) {
+        this.navCtrl = navCtrl;
         this.modalCtrl = modalCtrl;
         this.toastCtrl = toastCtrl;
         this.loadingCtrl = loadingCtrl;
         this.tasksService = tasks;
 
         this.showLoading();
+
+        this.showInfoToast();
 
         this.tasksService.resolve().then(() => {
             this.refreshResults();
@@ -78,8 +88,19 @@ export class MyTasksPage {
         });
     }
 
-    private showLoading()
-    {
+    public showInfoToast() {
+        this.toastCtrl.create({
+            message: 'You can swipe left to show options on task item',
+            position: 'bottom',
+            showCloseButton: true,
+            closeButtonText: 'Ok'
+        }).present();
+    }
+
+    /**
+     * Show loading spinner
+     */
+    private showLoading() {
         this.loading = this.loadingCtrl.create({
             content: 'Please wait...'
         });
@@ -137,5 +158,17 @@ export class MyTasksPage {
      */
     public reorderItems(indexes) {
         this.tasksService.reorderItems(indexes);
+    }
+
+    /**
+     * Go to task details
+     * @param task
+     * @param slidingItem
+     */
+    public goToTask(task:Task, slidingItem:ItemSliding) {
+        slidingItem.close();
+        this.navCtrl.push(TaskDetailsPage, {
+            'task': task
+        });
     }
 }
