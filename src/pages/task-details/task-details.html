@@ -1,12 +1,12 @@
 <ion-header>
-  <navbar title="{{task.title}}"></navbar>
+  <navbar title="{{task.getTitle()}}"></navbar>
 </ion-header>
 
 
 <ion-content padding>
 
   <ion-item>
-    {{task.description}}
+    {{task.getDescription()}}
   </ion-item>
 
 </ion-content>
