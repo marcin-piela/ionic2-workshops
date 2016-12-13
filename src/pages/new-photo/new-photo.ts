@@ -41,7 +41,7 @@ export class NewPhotoPage {
      * Fired on load
      */
     public ionViewDidLoad() {
-        Camera.getPicture({sourceType: 0, destinationType: 0,encodingType:0, targetWidth: 300, targetHeight: 300})
+        Camera.getPicture({sourceType: 1, destinationType: 0,encodingType:0, targetWidth: 300, targetHeight: 300})
             .then((imageData) => {
                     console.log(imageData);
                     this.image = 'data:image/jpeg;base64,' + imageData;
