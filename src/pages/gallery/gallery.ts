@@ -21,6 +21,7 @@ export class GalleryPage {
   /**
    * @param modalCtrl
    * @param events
+   * @param domSanitizer
      */
   constructor(modalCtrl:ModalController, events:Events, domSanitizer:DomSanitizer) {
     this.modalCtrl = modalCtrl;
