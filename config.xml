@@ -34,6 +34,7 @@
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
     </plugin>
     <plugin name="cordova-plugin-googlemaps" spec="~1.4.0">
-        <variable name="API_KEY_FOR_IOS" value="AIzaSyBGWqA9_ViRoGfx4P3eyz3HXv4sxl-kX18" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyBrzLd4gWDz6k6prr6P_QtJ63syze27-oI" />
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAdK1rrZWHe0fzXlAxnPUJZYk0H8QqgnOY" />
     </plugin>
 </widget>
