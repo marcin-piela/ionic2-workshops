@@ -44,12 +44,6 @@
       "platform": "ios",
       "version": "",
       "locator": "ios"
-    },
-    "android",
-    {
-      "platform": "android",
-      "version": "5.0.0",
-      "locator": "ios"
     }
   ],
   "description": "workshopApp: An Ionic project"
